@@ -3,7 +3,7 @@ $(document).ready(async function() {
     method: 'POST'
   });
   let userProfile = await userData.json();
-  console.log(userProfile)
+  // console.log(userProfile)
   let description = await userProfile.response.description
   let profileImageUrl = await userProfile.response.profile_image_url;
   let name = await userProfile.response.name;
@@ -36,12 +36,8 @@ $(document).ready(async function() {
   })
   let tweets = await tweetData.json()
 
-  console.log(tweets)
+  // console.log(tweets)
   getAverage(tweets.response)
-  // .then((result)=>{
-  //   console.log()
-  //   $('#general-vibe').hmtl(result.sentimentFinal);
-  // })
 
   function getAverage(tweets) {
     validEmotionTweets = 0;
@@ -53,7 +49,6 @@ $(document).ready(async function() {
         emotionsAverage.fear += tweet.emotions.fear;
         emotionsAverage.disgust += tweet.emotions.disgust;
         emotionsAverage.anger += tweet.emotions.anger;
-        console.log(emotionsAverage.disgust)
         validEmotionTweets++;
       }
       if (tweet.sentiment) {
